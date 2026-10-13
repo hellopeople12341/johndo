@@ -7,6 +7,7 @@ local messages = {
 for _, message in ipairs(messages) do
     game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(message, "All")
     task.wait(1)
+end
 wait(1)
 function BurningEff(part)
 local eff1 = Instance.new("ParticleEmitter",part)
