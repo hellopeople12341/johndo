@@ -1,10 +1,12 @@
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local RequestCommand = ReplicatedStorage:WaitForChild("HDAdminHDClient").Signals.RequestCommandSilent
-RequestCommand:InvokeServer(";chat all Im back... Your overlord is back...")
-wait(1)
-RequestCommand:InvokeServer(";chat all Good luck, Youll need it.")
-wait(1)
-RequestCommand:InvokeServer(";chat all Theyre all yours, Mr. Doe.")
+local messages = {
+    "Im back... Your overlord is back...",
+    "Good luck, Youll need it.",
+    "Theyre all yours, Mr. Doe."
+}
+
+for _, message in ipairs(messages) do
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(message, "All")
+    task.wait(1)
 wait(1)
 function BurningEff(part)
 local eff1 = Instance.new("ParticleEmitter",part)
